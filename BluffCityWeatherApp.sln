@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluffCityWeatherApp", "BluffCityWeatherApp\BluffCityWeatherApp.csproj", "{CBA8A724-57F5-4C38-AC30-B83D47705C65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluffCityWeatherApp.Infrastructure", "BluffCityWeatherApp.Infrastructure\BluffCityWeatherApp.Infrastructure.csproj", "{BE391642-DCD4-41F0-A659-84F51C85DFFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluffCityWeatherApp.AirTrafficControl", "BluffCityWeatherApp.AirTrafficControl\BluffCityWeatherApp.AirTrafficControl.csproj", "{DF64B4AD-4B8D-42A6-B9CA-D348A6AF9E0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluffCityWeatherApp.AirportInfoCenter", "BluffCityWeatherApp.AirportInfoCenter\BluffCityWeatherApp.AirportInfoCenter.csproj", "{1B296AE8-C956-4E54-ACD4-9A43FCABEBCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluffCityWeatherApp.Domain", "BluffCityWeatherApp.Domain\BluffCityWeatherApp.Domain.csproj", "{DA2E40F0-3D1B-42FA-BA3D-3A68D68661DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluffCityWeatherApp.AirlineCompany", "BluffCityWeatherApp.AirlineCompany\BluffCityWeatherApp.AirlineCompany.csproj", "{1680D02F-2059-45A0-83CF-CF7BE58AF350}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBA8A724-57F5-4C38-AC30-B83D47705C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBA8A724-57F5-4C38-AC30-B83D47705C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBA8A724-57F5-4C38-AC30-B83D47705C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBA8A724-57F5-4C38-AC30-B83D47705C65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE391642-DCD4-41F0-A659-84F51C85DFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE391642-DCD4-41F0-A659-84F51C85DFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE391642-DCD4-41F0-A659-84F51C85DFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE391642-DCD4-41F0-A659-84F51C85DFFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF64B4AD-4B8D-42A6-B9CA-D348A6AF9E0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF64B4AD-4B8D-42A6-B9CA-D348A6AF9E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF64B4AD-4B8D-42A6-B9CA-D348A6AF9E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF64B4AD-4B8D-42A6-B9CA-D348A6AF9E0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B296AE8-C956-4E54-ACD4-9A43FCABEBCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B296AE8-C956-4E54-ACD4-9A43FCABEBCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B296AE8-C956-4E54-ACD4-9A43FCABEBCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B296AE8-C956-4E54-ACD4-9A43FCABEBCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA2E40F0-3D1B-42FA-BA3D-3A68D68661DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2E40F0-3D1B-42FA-BA3D-3A68D68661DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2E40F0-3D1B-42FA-BA3D-3A68D68661DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2E40F0-3D1B-42FA-BA3D-3A68D68661DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1680D02F-2059-45A0-83CF-CF7BE58AF350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1680D02F-2059-45A0-83CF-CF7BE58AF350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1680D02F-2059-45A0-83CF-CF7BE58AF350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1680D02F-2059-45A0-83CF-CF7BE58AF350}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C73A5326-6597-4798-8175-FC8853CB431A}
+	EndGlobalSection
+EndGlobal

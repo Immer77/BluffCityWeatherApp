@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BluffCityWeatherApp.Domain.Filters
 {
+    /// <summary>
+    /// Airport information center filter
+    /// </summary>
     public class WeatherDataAIC
     {
         public string NameOfCity { get; set; }

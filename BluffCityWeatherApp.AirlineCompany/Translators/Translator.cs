@@ -12,8 +12,16 @@ using System.Xml.Serialization;
 
 namespace BluffCityWeatherApp.AirlineCompany.Translators
 {
+    /// <summary>
+    /// Extension class
+    /// </summary>
     public static class Translator
     {
+        /// <summary>
+        /// Sas translator, translating into a class
+        /// </summary>
+        /// <param name="weatherApiResponse"></param>
+        /// <returns></returns>
         public static WeatherDataAC SASTranslate(this WeatherApiResponse weatherApiResponse)
         {
             WeatherDataAC weatherData = new WeatherDataAC();
@@ -24,6 +32,11 @@ namespace BluffCityWeatherApp.AirlineCompany.Translators
             return weatherData;
         }
 
+        /// <summary>
+        /// British Airways Translator that translates into XML
+        /// </summary>
+        /// <param name="weatherApiResponse"></param>
+        /// <returns></returns>
         public static string BritishAirwaysTranslator(this WeatherApiResponse weatherApiResponse)
         {
             var weatherDataXml = new WeatherDataXml
@@ -43,6 +56,12 @@ namespace BluffCityWeatherApp.AirlineCompany.Translators
             }
         }
 
+        /// <summary>
+        /// Dublicate of British Airways Translator that translates into XML
+        /// However decided to repeat myself since it seperates them for show sake.
+        /// </summary>
+        /// <param name="weatherApiResponse"></param>
+        /// <returns></returns>
         public static string SouthWestAirlinesTranslator(this WeatherApiResponse weatherApiResponse)
         {
             var weatherDataXml = new WeatherDataXml
@@ -62,6 +81,11 @@ namespace BluffCityWeatherApp.AirlineCompany.Translators
             }
         }
 
+        /// <summary>
+        /// Standard KLM translator which returns a string
+        /// </summary>
+        /// <param name="weatherApiResponse"></param>
+        /// <returns></returns>
         public static string KLMTranslator(this WeatherApiResponse weatherApiResponse)
         {
             string formattedString = $"Temperature: {weatherApiResponse.main.temp} K, Clouds: {weatherApiResponse.clouds.all}%, NameOfCity: {weatherApiResponse.name}, Country: {weatherApiResponse.sys.country}";

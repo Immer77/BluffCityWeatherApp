@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace BluffCityWeatherApp.Domain
 {
+    /// <summary>
+    /// Actual implementation of the weather publisher (Subject)
+    /// </summary>
     public class WeatherPublisher : IWeatherPublisher
     {
         private List<IWeatherObserver> _subscribers = new List<IWeatherObserver>();

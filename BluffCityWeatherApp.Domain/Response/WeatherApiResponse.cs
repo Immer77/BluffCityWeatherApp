@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BluffCityWeatherApp.Domain
 {
+    /// <summary>
+    /// Weather api response received from The weather API
+    /// </summary>
     public class WeatherApiResponse
     {
         public Coord coord { get; set; }

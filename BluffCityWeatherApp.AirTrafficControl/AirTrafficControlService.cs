@@ -15,7 +15,10 @@ namespace BluffCityWeatherApp.AirTrafficControl
 
         public AirTrafficControlService() { }
 
-
+        /// <summary>
+        /// Update function from the observer
+        /// </summary>
+        /// <param name="weatherData"></param>
         public void Update(WeatherApiResponse weatherData)
         {
             Console.WriteLine("Weather Update for AirTrafficControlService");

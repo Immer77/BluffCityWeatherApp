@@ -15,27 +15,35 @@ namespace BluffCityWeatherApp
     {
         static async Task Main(string[] args)
         {
-            // Observers
-            AirportInformationCenterService AIC = new AirportInformationCenterService();
-            AirTrafficControlService ATC = new AirTrafficControlService();
-            Airline SAS = new SAS();
-            Airline SouthWest = new SouthWest();
-            Airline BritishAirways = new BritishAirways();
-            Airline KLM = new KLM();
+            try
+            {
+                // Observers
+                AirportInformationCenterService AIC = new AirportInformationCenterService();
+                AirTrafficControlService ATC = new AirTrafficControlService();
+                Airline SAS = new SAS();
+                Airline SouthWest = new SouthWest();
+                Airline BritishAirways = new BritishAirways();
+                Airline KLM = new KLM();
 
-            // Subscribing
-            WeatherPublisher weatherPublisher = new WeatherPublisher();
-            weatherPublisher.Subscribe(AIC);
-            weatherPublisher.Subscribe(ATC);
-            weatherPublisher.Subscribe(SAS);
-            weatherPublisher.Subscribe(SouthWest);
-            weatherPublisher.Subscribe(BritishAirways);
-            weatherPublisher.Subscribe(KLM);
+                // Subscribing
+                WeatherPublisher weatherPublisher = new WeatherPublisher();
+                weatherPublisher.Subscribe(AIC);
+                weatherPublisher.Subscribe(ATC);
+                weatherPublisher.Subscribe(SAS);
+                weatherPublisher.Subscribe(SouthWest);
+                weatherPublisher.Subscribe(BritishAirways);
+                weatherPublisher.Subscribe(KLM);
 
-            WeatherApiClient weatherApiClient = new WeatherApiClient(weatherPublisher);
-            await weatherApiClient.GetWeatherDataAsync();
+                // API Client to call weather API
+                WeatherApiClient weatherApiClient = new WeatherApiClient(weatherPublisher);
+                await weatherApiClient.GetWeatherDataAsync();
 
-            Console.ReadLine();
+                Console.ReadLine();
+            }
+            catch (WeatherApiException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 
 namespace BluffCityWeatherApp.Infrastructure
 {
+    /// <summary>
+    /// Weather Api Client to make calls to the weather API
+    /// </summary>
     public class WeatherApiClient
     {
         private readonly string _apiKey;
@@ -14,6 +17,10 @@ namespace BluffCityWeatherApp.Infrastructure
         private readonly string _baseUrl;
         private IWeatherPublisher _weatherPublisher;
 
+        /// <summary>
+        /// Constructor that takes in the weather publisher
+        /// </summary>
+        /// <param name="weatherPublisher"></param>
         public WeatherApiClient(IWeatherPublisher weatherPublisher)
         {
             _apiKey = "e5056c5a3a9a2e69127f61ef08d0a42d";
@@ -22,6 +29,11 @@ namespace BluffCityWeatherApp.Infrastructure
             _weatherPublisher = weatherPublisher;
         }
 
+        /// <summary>
+        /// HTTP Get call to the weather API
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="WeatherApiException"></exception>
         public async Task GetWeatherDataAsync()
         {
             // Build the request URL, including the API key and the location parameter

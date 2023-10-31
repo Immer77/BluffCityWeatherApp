@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 
 namespace BluffCityWeatherApp.Domain.Filters
 {
+    /// <summary>
+    /// XML Filter
+    /// </summary>
     [XmlRoot("WeatherData")]
     public class WeatherDataXml
     {

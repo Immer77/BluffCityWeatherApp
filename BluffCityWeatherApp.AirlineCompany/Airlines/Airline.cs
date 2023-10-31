@@ -8,13 +8,11 @@ using System.Threading.Tasks;
 
 namespace BluffCityWeatherApp.AirlineCompany.Airlines
 {
+    /// <summary>
+    /// Abstract class for implementing new airlines
+    /// </summary>
     public abstract class Airline : IWeatherObserver
     {
-
-        protected Airline()
-        {
-        }
-
         public virtual void Update(WeatherApiResponse weatherData)
         {
             Console.WriteLine("Placeholder");

@@ -18,7 +18,10 @@ namespace BluffCityWeatherApp.AirportInfoCenter
         {
 
         }
-
+        /// <summary>
+        /// Update method for Airportinformation center which filters the weather data
+        /// </summary>
+        /// <param name="weatherData"></param>
         public void Update(WeatherApiResponse weatherData)
         {
             Console.WriteLine("Weather Update for Airport Information Center");

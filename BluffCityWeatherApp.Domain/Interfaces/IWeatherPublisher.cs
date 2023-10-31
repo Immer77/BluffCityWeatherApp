@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BluffCityWeatherApp.Domain.Interfaces
 {
+    /// <summary>
+    /// Publisher for weatherdata
+    /// </summary>
     public interface IWeatherPublisher
     {
         Task NotifySubscribersAsync(WeatherApiResponse weatherData);

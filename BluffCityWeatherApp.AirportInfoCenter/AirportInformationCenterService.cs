@@ -1,4 +1,6 @@
 ﻿using BluffCityWeatherApp.Domain;
+using BluffCityWeatherApp.Domain.Filters;
+using BluffCityWeatherApp.Domain.Interfaces;
 using BluffCityWeatherApp.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -8,37 +10,33 @@ using System.Threading.Tasks;
 
 namespace BluffCityWeatherApp.AirportInfoCenter
 {
-    internal class AirportInformationCenterService
+    public class AirportInformationCenterService : IWeatherObserver
     {
         private readonly WeatherApiClient weatherApi;
 
         public AirportInformationCenterService()
         {
-            weatherApi = new WeatherApiClient();
+
         }
 
-        public async Task<WeatherDataAIC> GetWeatherInfoForAirportInformationCenter(string airportCode)
+        public void Update(WeatherApiResponse weatherData)
         {
-            // Call the Weather API to get weather data for the airport's location
-            WeatherData weatherData = await weatherApi.GetWeatherDataAsync();
-
-            // Process the weather data to create AirportWeatherInfo
-            WeatherDataAIC airportWeatherInfo = FilterWeatherData(weatherData);
-
-            return airportWeatherInfo;
+            Console.WriteLine("Weather Update for Airport Information Center");
+            WeatherDataAIC data = FilterWeatherData(weatherData);
+            Console.WriteLine(data);
         }
 
         /// <summary>
         /// Using the Content Filter Pattern
         /// </summary>
-        private WeatherDataAIC FilterWeatherData(WeatherData weatherData)
+        private WeatherDataAIC FilterWeatherData(WeatherApiResponse weatherData)
         {
             WeatherDataAIC weatherDataAIC = new WeatherDataAIC();
-            weatherDataAIC.Temperature = weatherData.Temperature;
-            weatherDataAIC.Country = weatherData.Country;
-            weatherDataAIC.Sunrise = weatherData.Sunrise;
-            weatherDataAIC.Sunset = weatherData.Sunset;
-            weatherDataAIC.NameOfCity = weatherData.NameOfCity;
+            weatherDataAIC.Temperature = weatherData.main.temp;
+            weatherDataAIC.Country = weatherData.sys.country;
+            weatherDataAIC.Sunrise = weatherData.sys.sunrise;
+            weatherDataAIC.Sunset = weatherData.sys.sunset;
+            weatherDataAIC.NameOfCity = weatherData.name;
             return weatherDataAIC;
         }
     }

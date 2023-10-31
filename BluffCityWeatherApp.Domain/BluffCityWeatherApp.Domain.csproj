@@ -41,11 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WeatherData.cs" />
+    <Compile Include="Filters\WeatherDataXml.cs" />
+    <Compile Include="Interfaces\IWeatherPublisher.cs" />
+    <Compile Include="WeatherPublisher.cs" />
+    <Compile Include="Response\WeatherApiResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeatherDataAC.cs" />
-    <Compile Include="WeatherDataAIC.cs" />
-    <Compile Include="WeatherDataATC.cs" />
+    <Compile Include="Filters\WeatherDataAC.cs" />
+    <Compile Include="Filters\WeatherDataAIC.cs" />
+    <Compile Include="Filters\WeatherDataATC.cs" />
+    <Compile Include="Interfaces\IWeatherObserver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

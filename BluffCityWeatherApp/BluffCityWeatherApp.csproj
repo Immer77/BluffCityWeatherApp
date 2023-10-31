@@ -49,5 +49,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BluffCityWeatherApp.AirlineCompany\BluffCityWeatherApp.AirlineCompany.csproj">
+      <Project>{1680d02f-2059-45a0-83cf-cf7be58af350}</Project>
+      <Name>BluffCityWeatherApp.AirlineCompany</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BluffCityWeatherApp.AirportInfoCenter\BluffCityWeatherApp.AirportInfoCenter.csproj">
+      <Project>{1b296ae8-c956-4e54-acd4-9a43fcabebcc}</Project>
+      <Name>BluffCityWeatherApp.AirportInfoCenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BluffCityWeatherApp.AirTrafficControl\BluffCityWeatherApp.AirTrafficControl.csproj">
+      <Project>{df64b4ad-4b8d-42a6-b9ca-d348a6af9e0f}</Project>
+      <Name>BluffCityWeatherApp.AirTrafficControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BluffCityWeatherApp.Domain\BluffCityWeatherApp.Domain.csproj">
+      <Project>{da2e40f0-3d1b-42fa-ba3d-3a68d68661de}</Project>
+      <Name>BluffCityWeatherApp.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BluffCityWeatherApp.Infrastructure\BluffCityWeatherApp.Infrastructure.csproj">
+      <Project>{be391642-dcd4-41f0-a659-84f51c85dffb}</Project>
+      <Name>BluffCityWeatherApp.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

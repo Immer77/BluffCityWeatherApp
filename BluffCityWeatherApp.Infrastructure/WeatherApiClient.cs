@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using BluffCityWeatherApp.Domain;
+using BluffCityWeatherApp.Domain.Interfaces;
 using Newtonsoft.Json;
 
 namespace BluffCityWeatherApp.Infrastructure
@@ -11,19 +12,22 @@ namespace BluffCityWeatherApp.Infrastructure
         private readonly string _apiKey;
         private readonly HttpClient _httpClient;
         private readonly string _baseUrl;
+        private IWeatherPublisher _weatherPublisher;
 
-        public WeatherApiClient()
+        public WeatherApiClient(IWeatherPublisher weatherPublisher)
         {
             _apiKey = "e5056c5a3a9a2e69127f61ef08d0a42d";
             _httpClient = new HttpClient();
             _baseUrl = "https://api.openweathermap.org/data/2.5/weather";
+            _weatherPublisher = weatherPublisher;
         }
 
-        public async Task<WeatherData> GetWeatherDataAsync()
+        public async Task GetWeatherDataAsync()
         {
             // Build the request URL, including the API key and the location parameter
-            string requestUrl = $"?lat=44.34&lon=10.99&appid={_apiKey}";
+            string requestUrl = "?lat=44.34&lon=10.99&appid=" +_apiKey;
 
+            _httpClient.BaseAddress = new Uri(_baseUrl);
             // Make the HTTP request to the weather API
             HttpResponseMessage response = await _httpClient.GetAsync(requestUrl);
 
@@ -31,8 +35,11 @@ namespace BluffCityWeatherApp.Infrastructure
             {
                 // Deserialize the response JSON into WeatherData
                 string content = await response.Content.ReadAsStringAsync();
-                WeatherData weatherData = JsonConvert.DeserializeObject<WeatherData>(content);
-                return weatherData;
+                Console.WriteLine(content);
+                WeatherApiResponse weatherData = JsonConvert.DeserializeObject<WeatherApiResponse>(content);
+
+                // Notify subscribers with the new weather data
+                await _weatherPublisher.NotifySubscribersAsync(weatherData);
             }
             else
             {

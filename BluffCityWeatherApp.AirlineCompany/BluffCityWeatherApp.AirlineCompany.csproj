@@ -41,7 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Airlines\Airline.cs" />
+    <Compile Include="Airlines\BritishAirways.cs" />
+    <Compile Include="Airlines\KLM.cs" />
+    <Compile Include="Airlines\SAS.cs" />
+    <Compile Include="Airlines\SouthWest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Translators\Translator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BluffCityWeatherApp.Domain\BluffCityWeatherApp.Domain.csproj">
@@ -53,8 +59,6 @@
       <Name>BluffCityWeatherApp.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Translators\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

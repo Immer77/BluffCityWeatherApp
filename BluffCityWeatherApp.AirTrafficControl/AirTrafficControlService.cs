@@ -1,4 +1,6 @@
 ﻿using BluffCityWeatherApp.Domain;
+using BluffCityWeatherApp.Domain.Filters;
+using BluffCityWeatherApp.Domain.Interfaces;
 using BluffCityWeatherApp.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -8,41 +10,34 @@ using System.Threading.Tasks;
 
 namespace BluffCityWeatherApp.AirTrafficControl
 {
-    internal class AirTrafficControlService
+    public class AirTrafficControlService : IWeatherObserver
     {
-        private readonly WeatherApiClient weatherApi;
 
-        public AirTrafficControlService()
+        public AirTrafficControlService() { }
+
+
+        public void Update(WeatherApiResponse weatherData)
         {
-            weatherApi = new WeatherApiClient();
-        }
-
-        public async Task<WeatherDataATC> GetWeatherInfoForAirportControlCenter(string airportCode)
-        {
-            // Call the Weather API to get weather data for the airport's location
-            WeatherData weatherData = await weatherApi.GetWeatherDataAsync();
-
-            // Process the weather data to create AirportWeatherInfo
-            WeatherDataATC airportWeatherInfo = FilterWeatherData(weatherData);
-
-            return airportWeatherInfo;
+            Console.WriteLine("Weather Update for AirTrafficControlService");
+            WeatherDataATC data = FilterWeatherData(weatherData);
+            Console.WriteLine(data);
         }
 
         /// <summary>
         /// Using the Content Filter Pattern
         /// </summary>
-        private WeatherDataATC FilterWeatherData(WeatherData weatherData)
+        private WeatherDataATC FilterWeatherData(WeatherApiResponse weatherData)
         {
             WeatherDataATC weatherDataATC = new WeatherDataATC();
-            weatherDataATC.Temperature = weatherData.Temperature;
-            weatherDataATC.Country = weatherData.Country;
-            weatherDataATC.NameOfCity = weatherData.NameOfCity;
-            weatherDataATC.Pressure = weatherData.Pressure;
-            weatherDataATC.Humidity = weatherData.Humidity;
-            weatherDataATC.Coordinates = weatherData.Coordinates;
-            weatherDataATC.Clouds = weatherData.Clouds;
-            weatherDataATC.Wind = weatherData.Wind;
-            weatherDataATC.Visibility = weatherData.Visibility;
+            weatherDataATC.Temperature = weatherData.main.temp;
+            weatherDataATC.Country = weatherData.sys.country;
+            weatherDataATC.NameOfCity = weatherData.name;
+            weatherDataATC.Pressure = weatherData.main.pressure;
+            weatherDataATC.Humidity = weatherData.main.humidity;
+            weatherDataATC.Coordinates = "Longitude: " + weatherData.coord.lon + "Latitude: " + weatherData.coord.lat;
+            weatherDataATC.Clouds = weatherData.clouds.all;
+            weatherDataATC.Wind = weatherData.wind.speed;
+            weatherDataATC.Visibility = weatherData.visibility;
             return weatherDataATC;
         }
     }
